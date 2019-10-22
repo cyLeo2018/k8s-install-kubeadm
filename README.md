@@ -15,11 +15,10 @@ service子网：10.96.0.0/12
 ```
 
 # 步骤
-1. 安装docker
+
 ```
-bash install-docker.sh 18.09.8
-```
-2. master节点初始化
-```
-bash master-node-init.sh
+# git clone https://github.com/cyLeo2018/k8s-install-kubeadm.git
+# cd k8s-install-kubeadm
+# bash install-docker.sh 18.09.8
+# bash master-node-init.sh
 ```
