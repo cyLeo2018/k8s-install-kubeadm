@@ -15,10 +15,35 @@ service子网：10.96.0.0/12
 ```
 
 # 步骤
-
+## node1
 ```
 # git clone https://github.com/cyLeo2018/k8s-install-kubeadm.git
 # cd k8s-install-kubeadm
 # bash install-docker.sh 18.09.8
-# bash master-node-init.sh
+# bash node1-init.sh > node2.log 2>&1 
+```
+- 通过日志找到以下语句(以实际为准)
+```
+kubeadm join 172.18.222.171:6443 --token abcdef.0123456789abcdef \
+    --discovery-token-ca-cert-hash sha256:ffac755b9f184d0b9fe49f99c40a623b2d15eea0ea1684fab78a1442159ebfd0
+```
+## node2
+```
+# git clone https://github.com/cyLeo2018/k8s-install-kubeadm.git
+# cd k8s-install-kubeadm
+# bash install-docker.sh 18.09.8
+# bash pull-image.sh
+# bash node2-init.sh
+# kubeadm join 172.18.222.171:6443 --token abcdef.0123456789abcdef \
+    --discovery-token-ca-cert-hash sha256:ffac755b9f184d0b9fe49f99c40a623b2d15eea0ea1684fab78a1442159ebfd0
+```
+## node3
+```
+# git clone https://github.com/cyLeo2018/k8s-install-kubeadm.git
+# cd k8s-install-kubeadm
+# bash install-docker.sh 18.09.8
+# bash pull-image.sh
+# bash node3-init.sh
+# kubeadm join 172.18.222.171:6443 --token abcdef.0123456789abcdef \
+    --discovery-token-ca-cert-hash sha256:ffac755b9f184d0b9fe49f99c40a623b2d15eea0ea1684fab78a1442159ebfd0
 ```
