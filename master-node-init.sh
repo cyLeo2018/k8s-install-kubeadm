@@ -72,7 +72,11 @@ chown $(id -u):$(id -g) ~/.kube/config
 #kubectl apply -f kube-flannel.yml 
 
 echo "安装calico网络插件"
-kubectl apply -f https://docs.projectcalico.org/v3.10/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
+#wget https://docs.projectcalico.org/v3.10/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
+#需要修改calico.yaml中的默认pod网段为10.244.0.0/16
+# CALICO_IPV4POOL_CIDR 参数
+
+kubectl apply -f calico.yaml
 
 echo "查看状态"
 kubectl get nodes 
