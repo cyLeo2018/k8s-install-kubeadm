@@ -8,8 +8,18 @@
 172.18.222.172|node2|worker
 172.18.222.173|node3|worker
 
+```
+image仓库地址：registry.cn-hangzhou.aliyuncs.com/google_containers
+pod子网：10.244.0.0/16
+service子网：10.96.0.0/12
+```
+
 # 步骤
-1.
-2.
-3.
-4.
+1. 安装docker
+```
+bash install-docker.sh 18.09.8
+```
+2. master节点初始化
+```
+bash master-node-init.sh
+```
