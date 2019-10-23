@@ -2,6 +2,12 @@
 # leo 20190812
 # master节点一键初始化
 
+echo "修改镜像tag"
+docker image tag registry.cn-shenzhen.aliyuncs.com/k8s-install-kubeadm/calico_node:v3.10.0 calico/node:v3.10.0
+docker image tag registry.cn-shenzhen.aliyuncs.com/k8s-install-kubeadm/calico_cni:v3.10.0 calico/cni:v3.10.0
+docker image tag registry.cn-shenzhen.aliyuncs.com/k8s-install-kubeadm/calico_kube-controllers:v3.10.0 calico/kube-controllers:v3.10.0
+docker image tag registry.cn-shenzhen.aliyuncs.com/k8s-install-kubeadm/calico_pod2daemon-flexvol:v3.10.0 calico/pod2daemon-flexvol:v3.10.0
+
 echo "设置hostname与hosts"
 hostnamectl set-hostname node1
 cat >> /etc/hosts << EOF
