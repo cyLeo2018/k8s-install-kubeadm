@@ -47,3 +47,5 @@ kubeadm join 172.18.222.171:6443 --token abcdef.0123456789abcdef \
 # kubeadm join 172.18.222.171:6443 --token abcdef.0123456789abcdef \
     --discovery-token-ca-cert-hash sha256:ffac755b9f184d0b9fe49f99c40a623b2d15eea0ea1684fab78a1442159ebfd0
 ```
+# tips
+1.kubeadm.yml中podSubnet参数要与calico.yaml中的CALICO_IPV4POOL_CIDR参数一致，处于同一网段
