@@ -20,6 +20,7 @@ service子网：10.96.0.0/12
 # git clone https://github.com/cyLeo2018/k8s-install-kubeadm.git
 # cd k8s-install-kubeadm
 # bash install-docker.sh 18.09.8
+# bash pull-image.sh
 # bash node1-init.sh > node1.log 2>&1 
 ```
 - 通过日志找到以下语句(以实际为准)
