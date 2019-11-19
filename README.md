@@ -23,6 +23,12 @@ service子网：10.96.0.0/12
 # bash pull-image.sh
 # bash node1-init.sh > node1.log 2>&1 
 ```
+- 安装weavescope
+```
+kubectl apply -f "https://cloud.weave.works/k8s/scope.yaml?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+pod=$(kubectl get -n weave pod --selector=weave-scope-component=app -o jsonpath='{.items..metadata.name}')
+kubectl expose pod $pod -n weave --port=4040 --target-port=4040 --type=NodePort
+```
 - 通过日志找到以下语句(以实际为准)
 ```
 kubeadm join 172.18.222.171:6443 --token abcdef.0123456789abcdef \
