@@ -24,10 +24,10 @@ bash install-docker.sh
 # bash pull-image.sh
 bash node1-init.sh > node1.log 2>&1 
 ```
-- 暴露weavescope
+# 暴露weavescope
 ```
-pod=$(kubectl get -n weave pod --selector=weave-scope-component=app -o jsonpath='{.items..metadata.name}')
-kubectl expose pod $pod -n weave --port=4040 --target-port=4040 --type=NodePort
+# pod=$(kubectl get -n weave pod --selector=weave-scope-component=app -o jsonpath='{.items..metadata.name}')
+# kubectl expose pod $pod -n weave --port=4040 --target-port=4040 --type=NodePort
 ```
 - 通过日志找到以下语句(以实际为准)
 ```
