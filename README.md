@@ -10,8 +10,8 @@
 
 ```
 image仓库地址：registry.cn-hangzhou.aliyuncs.com/google_containers
-pod子网：10.244.0.0/16
-service子网：10.96.0.0/12
+# pod子网：10.244.0.0/16
+# service子网：10.96.0.0/12
 ```
 
 # 步骤
