@@ -17,11 +17,12 @@ service子网：10.96.0.0/12
 # 步骤
 ## node1
 ```
-# git clone https://github.com/cyLeo2018/k8s-install-kubeadm.git
-# cd k8s-install-kubeadm
+git clone https://github.com/cyLeo2018/k8s-install-kubeadm.git
+cd k8s-install-kubeadm
 # bash install-docker.sh 18.09.8
+bash install-docker.sh
 # bash pull-image.sh
-# bash node1-init.sh > node1.log 2>&1 
+bash node1-init.sh > node1.log 2>&1 
 ```
 - 安装weavescope
 ```
