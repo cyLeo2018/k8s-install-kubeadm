@@ -2,11 +2,11 @@
 # leo 20190812
 # master节点一键初始化
 
-echo "修改镜像tag"
-docker image tag registry.cn-shenzhen.aliyuncs.com/k8s-install-kubeadm/calico_node:v3.10.0 calico/node:v3.10.0
-docker image tag registry.cn-shenzhen.aliyuncs.com/k8s-install-kubeadm/calico_cni:v3.10.0 calico/cni:v3.10.0
-docker image tag registry.cn-shenzhen.aliyuncs.com/k8s-install-kubeadm/calico_kube-controllers:v3.10.0 calico/kube-controllers:v3.10.0
-docker image tag registry.cn-shenzhen.aliyuncs.com/k8s-install-kubeadm/calico_pod2daemon-flexvol:v3.10.0 calico/pod2daemon-flexvol:v3.10.0
+#echo "修改镜像tag"
+#docker image tag registry.cn-shenzhen.aliyuncs.com/k8s-install-kubeadm/calico_node:v3.10.0 calico/node:v3.10.0
+#docker image tag registry.cn-shenzhen.aliyuncs.com/k8s-install-kubeadm/calico_cni:v3.10.0 calico/cni:v3.10.0
+#docker image tag registry.cn-shenzhen.aliyuncs.com/k8s-install-kubeadm/calico_kube-controllers:v3.10.0 calico/kube-controllers:v3.10.0
+#docker image tag registry.cn-shenzhen.aliyuncs.com/k8s-install-kubeadm/calico_pod2daemon-flexvol:v3.10.0 calico/pod2daemon-flexvol:v3.10.0
 
 echo "设置hostname与hosts"
 hostnamectl set-hostname node1
@@ -67,8 +67,9 @@ yum -y install kubelet kubeadm kubectl
 
 echo "初始化"
 systemctl enable kubelet
-kubeadm init --config kubeadm.yml
+#kubeadm init --config kubeadm.yml
 #kubeadm init --kubernetes-version=1.15.0 --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.6.128 --image-repository registry.cn-hangzhou.aliyuncs.com/google_containers
+kubeadm init --apiserver-advertise-address $(hostname -i) --image-repository registry.cn-hangzhou.aliyuncs.com/google_containers
 
 mkdir -p ~/.kube
 cp -i /etc/kubernetes/admin.conf ~/.kube/config
@@ -77,12 +78,14 @@ chown $(id -u):$(id -g) ~/.kube/config
 #echo "安装flannel 网络插件"
 #kubectl apply -f kube-flannel.yml 
 
-echo "安装calico网络插件"
+#echo "安装calico网络插件"
 #wget https://docs.projectcalico.org/v3.10/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
 #需要修改calico.yaml中的默认pod网段为10.244.0.0/16
 # CALICO_IPV4POOL_CIDR 参数
+#kubectl apply -f calico.yaml
 
-kubectl apply -f calico.yaml
+echo "安装waeve网络插件"
+kubectl apply -n kube-system -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 |tr -d '\n')"
 
 echo "查看状态"
 kubectl get nodes 
