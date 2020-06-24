@@ -2,13 +2,13 @@
 # leo 20190812
 # node2节点一键初始化
 
-echo "设置hostname与hosts"
-hostnamectl set-hostname node2
-cat >> /etc/hosts << EOF
-172.18.222.171 node1
-172.18.222.172 node2
-172.18.222.173 node3
-EOF
+#echo "设置hostname与hosts"
+#hostnamectl set-hostname node2
+#cat >> /etc/hosts << EOF
+#172.18.222.171 node1
+#172.18.222.172 node2
+#172.18.222.173 node3
+#EOF
 
 echo "开启ipvs"
 yum -y install ipvsadm ipset bind-utils
