@@ -1,5 +1,5 @@
 #!/bin/bash 
-# leo 20190812
+# leo 20200624
 # master节点一键初始化
 
 #echo "修改镜像tag"
@@ -8,13 +8,13 @@
 #docker image tag registry.cn-shenzhen.aliyuncs.com/k8s-install-kubeadm/calico_kube-controllers:v3.10.0 calico/kube-controllers:v3.10.0
 #docker image tag registry.cn-shenzhen.aliyuncs.com/k8s-install-kubeadm/calico_pod2daemon-flexvol:v3.10.0 calico/pod2daemon-flexvol:v3.10.0
 
-echo "设置hostname与hosts"
-hostnamectl set-hostname node1
-cat >> /etc/hosts << EOF
-172.18.222.171 node1
-172.18.222.172 node2
-172.18.222.173 node3
-EOF
+#echo "设置hostname与hosts"
+#hostnamectl set-hostname node1
+#cat >> /etc/hosts << EOF
+#172.18.222.171 node1
+#172.18.222.172 node2
+#172.18.222.173 node3
+#EOF
 
 echo "开启ipvs"
 yum -y install ipvsadm ipset bind-utils
