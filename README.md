@@ -1,12 +1,14 @@
 # k8s-install-kubeadm
-使用kubeadm部署kubernetes集群
+- 使用kubeadm部署kubernetes集群
+- 当前最新版本为1.18.4
+- 但是国内阿里的镜像仓库只更新到1.18.2
 
 # 实验环境
 内网IP|主机名|备注
 --|--|--
-172.18.222.171|node1|master
-172.18.222.172|node2|worker
-172.18.222.173|node3|worker
+192.168.65.128|k8s-node0|master
+192.168.65.129|k8s-node1|worker
+192.168.65.130|k8s-node2|worker
 
 ```
 image仓库地址：registry.cn-hangzhou.aliyuncs.com/google_containers
