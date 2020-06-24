@@ -35,6 +35,7 @@ image仓库地址：registry.cn-hangzhou.aliyuncs.com/google_containers
 ```
 # pod=$(kubectl get -n weave pod --selector=weave-scope-component=app -o jsonpath='{.items..metadata.name}')
 # kubectl expose pod $pod -n weave --port=4040 --target-port=4040 --type=NodePort
+```
 - 访问weave ui
 ```
 http://192.168.65.128:4040
