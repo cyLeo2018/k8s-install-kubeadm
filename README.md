@@ -40,7 +40,6 @@ image仓库地址：registry.cn-hangzhou.aliyuncs.com/google_containers
 ```
 http://192.168.65.128:4040
 ```
-```
 - 通过日志node0.log找到以下语句(以实际为准)
 ```
 kubeadm join 192.168.65.128:6443 --token abcdef.0123456789abcdef \
