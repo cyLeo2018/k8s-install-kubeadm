@@ -69,7 +69,7 @@ echo "初始化"
 systemctl enable kubelet
 #kubeadm init --config kubeadm.yml
 #kubeadm init --kubernetes-version=1.15.0 --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.6.128 --image-repository registry.cn-hangzhou.aliyuncs.com/google_containers
-kubeadm init --apiserver-advertise-address $(hostname -i) --image-repository registry.cn-hangzhou.aliyuncs.com/google_containers
+kubeadm init --kubernetes-version=1.18.2 --apiserver-advertise-address $(hostname -i) --image-repository registry.cn-hangzhou.aliyuncs.com/google_containers
 
 mkdir -p ~/.kube
 cp -i /etc/kubernetes/admin.conf ~/.kube/config
